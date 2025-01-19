@@ -1,0 +1,146 @@
+\documentclass[10pt, oneside]{article} 
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}  
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+\newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Proof: }}\setlength{\parindent}{1cm}#1 \hfill $\blacksquare$}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}
+
+
+\title{Galois, Fields and Algebras}
+\author{Naveensurya V \\ naveen24@iisertvm.ac.in}
+\date{\today}
+
+\begin{document}
+	
+	% \begin{center}
+	% 	\textbf{Galois, Fields and Algebras}\\
+	% 	by Dr. Viji Thomas\\ 
+	% 	\LaTeX -ed by Naveensurya V
+
+	% \end{center}
+	
+	\maketitle
+	\tableofcontents
+	
+	\vspace{.25in}
+	\pagebreak
+	\section{First half of Galois Theory}
+	
+	\subsection{Basic Definitions}
+	\begin{defn}
+		Let $L / K$ be a field extension and \textbf{Automorphism} of $L/K$ is defined as \[Aut(L/K) := \{\phi : L \to L | \ \phi (k) = k , \ \forall k \in K \}\]
+	\end{defn}
+
+	\begin{defn}
+		Let $U \subseteq Aut(L/K)$ then $\mathcal{F}(U)$ is defined as \[\mathcal{F}(U) := \{x \in L | \ \Psi (x)= x , \ \forall \Psi \in U\}\]
+		
+	\end{defn}
+\begin{defn}
+	Let $Z \subset L$ be a intermediate field between $L$ and $K$ then $\mathcal{G}(Z)$ is defined as
+	\[ \mathcal{G}(Z) := Aut(L/Z) \]
+\end{defn}
+
+\begin{lem}
+	Let $U \subseteq Aut(L/K)$ and $Z \subset L$ be a intermediate field between $L$ and $K$
+	\begin{enumerate}
+		\item[(a)] $U \subseteq \G \circ \F (U) := Aut(L/ \F(U))$
+		\item[(b)] $Z \subseteq \F \circ \G (Z) $
+		\item[(c)] $\F$ is inclusion reversing. i.e, $U_1 \subseteq U_2 \implies \F(U_2) \subseteq \F(U_1)$ 
+		\item[(d)] $\G$ is inclusion reversing. i.e, $Z_1 \subseteq Z_2 \implies \G(Z_2) \subseteq \G(Z_1)$   
+		\item[(e)] $\G = \G \circ \F \circ \G$
+		\item[(f)] $\F = \F \circ \G \circ \F$   
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	Isn't it obvious $\heartsuit $
+\end{proof}
+	\subsection{Dedekind Theorem}
+	\begin{thm}
+		\textbf{[Dedekind's theorem on linear independence of characters.]}
+		Distinct field automorphims \(\sigma_1, \dots , \sigma_n\) from $L \to L$ are linearly independent on the $L$-vector space of all mappings from $L \to L$ 
+
+	\end{thm}
+	\begin{proof}
+		
+	\end{proof}
+\begin{defn}
+	Let $L/K$ be a field extension. we can view $L$ as vector space over $K$ and \textbf{degree of extension} is defined as \[[L:K] := 
+	dim_K(L)\] 
+
+\end{defn}
+\begin{lem}
+	Suppose $[V_1:K] = n$ and $[V_2 :K] = m$, then \[dim_K\big(Hom_K(V_1, V_2)\big) = mn\]
+\end{lem}
+
+\begin{lem}
+		Let $L/K$ be a finite field extension. Then $Aut(L/K) \le [L:K]$
+	\end{lem}
+
+\subsection{Artin Theorem}
+\begin{defn}
+	Let $U \subseteq Aut(L/K)$ be a finite subgroup. Then the \textbf{U-trace} of $\alpha \in L$ is defined as \[tr_U({\alpha}) := \sum_{\sigma \in U} \sigma(\alpha) \]
+\end{defn}
+
+\begin{lem}
+	$tr_U : L \to \F(U)$ is a $K$-linear map. If $char(K) \nmid |U|$, then $tr_U:L \to \F(U)$ is surjective
+\end{lem}
+\begin{lem}
+	$tr_U$ is not identitically zero.
+\end{lem}
+
+\begin{thm}
+\textbf{[Artin]}
+Let $U \subseteq Aut(L/K)$ be a finite subgroup. Then $[L : \F(U)] = |U|$ and $\G \circ \F (U)= U$ 
+
+\end{thm}
+
+\begin{proof}
+Exercise. 	
+\end{proof}
+
+\begin{cor}
+	If $L/K$ is a finite field extension , then $\G\circ\F \equiv  id$
+\end{cor}
+
+\subsection{Galois extension}
+\begin{defn}
+	An extension $L/K$ is \textbf{Galois extension} if \[\F \circ\G (K) = K \]
+Equivalently, \( \F(Aut(L/(K))) = K \)	
+\end{defn}
+
+\begin{cor}
+Let $G \subseteq Aut(L)$ be a finite subgroup and let $K := \F(G)$. Then $L/K$ is a galois extension and $Aut(L/K) = G$
+\end{cor}
+\begin{proof}
+	
+\end{proof}
+
+\begin{cor}
+	Let $L/K$ be a finite extension . Then $L/K$ is Galois $\iff |Aut(L/K)| = [L:K]$
+\end{cor}
+
+\section{Results from Ring Theory}
+
+\end{document}
